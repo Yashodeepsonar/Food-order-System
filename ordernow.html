@@ -1,0 +1,156 @@
+<! DOCTYPE html>  
+<html>  
+<meta name="viewport" content="width=device-width, initial-scale=1">    
+<meta charset="UTF-8">    
+<title>Order Now</title>     
+ </head>  
+<style>  
+body {  
+  width: 500px;  
+  margin: 0 auto;  
+  padding: 50px;  
+  background-image:url('https://media.istockphoto.com/id/1350643908/photo/orange-paper-top-view-abstract-bright-background-without-texture.jpg?b=1&s=170667a&w=0&k=20&c=aNwk1MWvLMpgShx8nqxqatcUVdVxEi3dSRc9XfmpDa8=');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:100% 100%
+}  
+div.elem-group {  
+  margin: 10px 0;  
+}  
+div.elem-group.inlined {  
+  width: 49%;  
+  display: inline-block;  
+ 
+  margin-left: 1%;  
+}  
+label {  
+  display: block;  
+  font-family: 'Nanum Gothic';  
+  padding-bottom: 8px;  
+  font-size: 1em;  
+}  
+input {  
+  border-radius: 2px;  
+  border: 2px solid #777;  
+  box-sizing: border-box;  
+  font-size: 1em;  
+  font-family: 'Nanum Gothic';  
+  width: 100%;  
+  padding: 10px;  
+}  
+select {  
+  border-radius: 2px;  
+  border: 2px solid #777;  
+  box-sizing: border-box;  
+  font-size: 1.25em;  
+  font-family: 'Nanum Gothic';  
+  width: 100%;  
+  padding: 8px;  
+}  
+textarea {  
+  border-radius: 2px;  
+  border: 2px solid #aac209;  
+  box-sizing: border-box;  
+  font-size: 1em;  
+  font-family: 'Nanum Gothic';  
+  width: 100%;  
+  padding: 8px;  
+}  
+div.elem-group.inlined input {  
+  width: 95%;  
+  display: inline-block;  
+}  
+h1 {  
+  position: relative;  
+  padding: 0;  
+  margin: 0;  
+  font-family: "Raleway", sans-serif;  
+  font-weight: 300;  
+  font-size: 40px;  
+  color: #080808;  
+  -webkit-transition: all 0.4s ease 0s;  
+  -o-transition: all 0.4s ease 0s;  
+  transition: all 0.4s ease 0s;  
+  text-align: center;  
+}  
+textarea {  
+  height: 250px;  
+}  
+h2 {  
+ font-style: italic;  
+font-family: "Playfair Display","Bookman",serif;  
+ color: #250202;   
+letter-spacing: -0.005em;   
+word-spacing: 1px;  
+font-size: 1.75em;  
+font-weight: bold;  
+  }  
+hr {  
+  border: 1px dotted #ccc;  
+}  
+button {  
+  height: 50px;  
+  background: rgb(236, 233, 227);  
+  border: none;  
+  color: rgb(28, 2, 2);  
+  font-size: 1.25em;  
+  font-family: 'Nanum Gothic';  
+  border-radius: 4px;  
+  cursor: pointer;  
+}  
+button:hover {  
+  border: 2px solid black;  
+}  
+</style>  
+<body>  
+ <h2> Register Now </h2>   
+<form action="#" method="post">  
+  <div class="elem-group">  
+    <label for="name"> Enter Your Name </label>  
+    <input type="text" id="name" name="visitor_name" placeholder="Rama Dev" pattern= [A-Z\sa-z]{3,20} required>  
+  </div>  
+  <div class="elem-group">  
+    <label for="email"> Enter Your E-mail </label>  
+    <input type="email" id="email" name="visitor_email" placeholder="RamaDev@email.com" required>  
+  </div>  
+  <div class="elem-group">  
+    <label for="phone"> Enter Your Phone Number </label>  
+    <input type="tel" id="phone" name="visitor_phone" placeholder="498-348-3872" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>  
+  </div>  
+
+    <label for="room-selection"> Select Destination Type </label>  
+    <select id="room-selection" name="room_preference" required>  
+        <option value=""> Select Type </option>  
+        <option value="connecting"> Home </option>  
+        <option value="adjoining"> Office </option>  
+        <option value="adjacent"> University </option>  
+    </select>  
+  </div>  
+  <hr>  
+  <div class="elem-group">  
+    <label for="message"> Put Address </label>  
+    <textarea id="message" name="visitor_message" placeholder="Tell us anything else that might be important." required> </textarea>  
+  </div>  
+  <button type="submit"> Register Now </button>  
+</form>  
+<script>  
+var currentDateTime = new Date();  
+var year = currentDateTime.getFullYear();  
+var month = (currentDateTime.getMonth() + 1);  
+var date = (currentDateTime.getDate() + 1);  
+if(date < 10) {  
+  date = '0' + date;  
+}  
+if(month < 10) {  
+  month = '0' + month;  
+}  
+var dateTomorrow = year + "-" + month + "-" + date;  
+var checkinElem = document.querySelector("#checkin-date");  
+var checkoutElem = document.querySelector("#checkout-date");  
+checkinElem.setAttribute("min", dateTomorrow);  
+checkinElem.onchange = function () {  
+    checkoutElem.setAttribute("min", this.value);  
+}  
+</script>  
+</body>  
+</html>  
